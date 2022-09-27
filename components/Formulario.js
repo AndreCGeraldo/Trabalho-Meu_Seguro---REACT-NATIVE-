@@ -42,7 +42,7 @@ export default function Formulario({ navigation }) {
             porcentagem = 3.8
         }
 
-        if (!preco || !cliente || !modelo) {
+        if (!preco || !cliente || !modelo || !marca) {
             return alert("ERRO... Preencha Todos os Campos!")
         }
         const resultado = (preco * porcentagem) / 100;
@@ -90,6 +90,7 @@ export default function Formulario({ navigation }) {
         setRenovacao(false);
         setMensagem(null);
         dropdownRef.current.reset();
+        alert('REGISTRO EFETUADO!');
     };
 
 
@@ -98,7 +99,7 @@ export default function Formulario({ navigation }) {
         <View style={styles.container} onPress={novo}>
             <Image source={Logo} style={styles.logoStyles} />
             <TextInput
-                placeholder="Cliente / Contato"
+                placeholder="Nome / Contato"
                 placeholderTextColor="#aaa"
                 style={styles.textInput}
                 onChangeText={(texto) => setCliente(texto)}
